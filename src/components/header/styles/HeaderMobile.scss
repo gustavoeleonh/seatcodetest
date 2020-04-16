@@ -1,0 +1,28 @@
+.cardsDiv.mobile {
+  display: block;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  z-index: 5000;
+  .titleLogo {
+    width: 50px;
+
+    .st0 {
+      fill: #132968;
+    }
+  }
+  .cardsLogo {
+    width: 50px;
+  }
+  .line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: #132968;
+    border-radius: 8px;
+  }
+}

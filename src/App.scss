@@ -1,0 +1,204 @@
+$base-color: #f1f2f6;
+$black: #333333;
+$white: #f5f5f5;
+$logo-width: 100px;
+$logo-width2: 70px;
+
+@font-face {
+  font-family: "futuramedium";
+  src: url("../src/assets/fonts/futura-webfont.woff2") format("woff2"),
+    url("../src/assets/fonts/futura-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// JUST SIMPLEBAR SCROLL
+
+.simpleBar {
+  max-height: calc(100% - 228px);
+  padding: 0px 32px;
+}
+.buttonFilter {
+  margin-top: 32px;
+}
+.simplebar-content {
+  padding: 0px 32px !important;
+}
+.simplebar-scrollbar:before {
+  background: #132968 !important;
+  border-radius: 8px !important;
+  left: 0px !important;
+  right: 10px !important;
+  top: 8px !important;
+}
+.fadeDiv {
+  position: absolute;
+  bottom: 112px;
+  width: calc(100% - 64px);
+  height: 30px;
+  background: linear-gradient(rgba(241, 242, 246, 0), rgba(241, 242, 246, 1));
+  z-index: 5;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+//APP
+
+.App {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $base-color;
+  overflow: hidden;
+  * {
+    word-break: break-word;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "futuramedium", "Karla", sans-serif;
+  }
+
+  // HIDE MOBILE HEADER
+  .cardsDiv.mobile {
+    display: none;
+  }
+
+  //OPTIONS SECTION
+  .cards {
+    position: absolute;
+    width: 45%;
+    height: 100%;
+    background: #f1f2f6;
+    box-shadow: 2px 0px 9px -2px rgba(19, 41, 104, 0.2);
+    z-index: 1;
+    overflow: hidden;
+    .triggerMobileDiv {
+      display: none;
+    }
+  }
+
+  //FOOTER
+
+  .footerImage {
+    position: absolute;
+    bottom: 0;
+    width: 25%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    .footerRoad {
+      position: absolute;
+      bottom: 0;
+    }
+    .footerLogo {
+      position: absolute;
+      bottom: -80px;
+      width: 35%;
+      transform: scale(1.7);
+      animation: moveBus 5s ease 0.5s;
+      @keyframes moveBus {
+        from {
+          bottom: -80px;
+          transform: scale(1.7);
+        }
+        to {
+          bottom: 52px;
+          transform: scale(0);
+        }
+      }
+    }
+  }
+
+  @media only screen and (max-width: 1016px) {
+    //SIMPLEBAR SCROLL
+
+    .simpleBar {
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+      padding: 0px 32px;
+    }
+    .buttonFilter {
+      padding: 16px 11px !important;
+      background: #f1f2f6;
+      border-radius: 50%;
+      box-shadow: 2px 0px 9px -2px rgba(19, 41, 104, 0.4);
+    }
+    .simplebar-content {
+      padding: 0px 16px !important;
+    }
+    .simplebar-scrollbar:before {
+      background: #132968 !important;
+      border-radius: 8px !important;
+      left: 0px !important;
+      right: 10px !important;
+      top: 8px !important;
+    }
+    .fadeDiv {
+      display: none;
+    }
+
+    //APP
+
+    .App {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: $base-color;
+      overflow: hidden;
+      * {
+        word-break: break-word;
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        font-family: "futuramedium";
+      }
+
+      // HIDE MOBILE HEADER
+      .cardsDiv.mobile {
+        display: flex;
+      }
+
+      // OPTIONS SECTION
+
+      .cards {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        bottom: 0;
+        box-shadow: none;
+        z-index: 1;
+        overflow: hidden;
+        padding-top: 40px;
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        transition: all 0.5s ease-in-out;
+        box-shadow: 0px -2px 8px -3px rgba(19, 41, 104, 0.4);
+        .triggerMobileDiv {
+          position: absolute;
+          top: 24px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 30px;
+          height: 4px;
+          border-radius: 8px;
+          background: #c0c2c9;
+          cursor: pointer;
+          display: block;
+        }
+        .cardsDivMobile {
+          display: flex;
+          overflow-x: scroll;
+        }
+        .cardsDiv {
+          display: none;
+        }
+      }
+
+      .footerImage {
+        display: none;
+      }
+    }
+  }
+}

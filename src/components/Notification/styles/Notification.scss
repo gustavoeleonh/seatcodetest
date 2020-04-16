@@ -1,0 +1,45 @@
+.route-cancelled-click {
+  position: absolute;
+  z-index: 5000;
+  width: auto;
+  max-width: 240px;
+  background: #ffffff;
+  padding: 8px 16px 16px !important;
+  border-radius: 8px;
+  color: #132968;
+  box-shadow: 0 2px 5px 0 rgba(19, 41, 104, 0.4);
+  transition: all 0.4s ease-in-out;
+  right: -260px;
+  top: 3%;
+  font-size: 12px;
+  font-weight: bold;
+  word-break: normal;
+  border-top: solid 16px #d63c3c;
+  opacity: 0;
+  p {
+    margin-top: 16px !important;
+    font-weight: lighter;
+  }
+  .notify-readmore {
+    margin-top: 8px;
+    a {
+      color: #d63c3c;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        margin-left: 5px;
+      }
+    }
+  }
+  .notifyArrow {
+    position: absolute;
+    width: 15px;
+    right: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      right: 14px;
+    }
+  }
+}

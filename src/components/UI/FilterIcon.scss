@@ -1,0 +1,39 @@
+.filterIcon {
+  width: 30px;
+  float: right;
+  cursor: pointer;
+  .b1,
+  .b2,
+  .b3 {
+    transition: all 0.3s ease-in-out;
+  }
+  &:hover {
+    .b3,
+    .b1 {
+      transform: translateX(100px);
+    }
+    .b2 {
+      transform: translateX(-100px);
+    }
+  }
+}
+
+.filterIcon.filter-active {
+  .b3,
+  .b1 {
+    transform: translateX(100px);
+  }
+  .b2 {
+    transform: translateX(-100px);
+  }
+}
+
+.st0 {
+  fill: #ffffff;
+}
+.st1 {
+  fill: #132968;
+}
+.st2 {
+  fill: #f1f2f6;
+}

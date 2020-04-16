@@ -1,0 +1,161 @@
+@mixin circle($color) {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  background: $color;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  transform: scale(1.2);
+  transition: all 0.3s ease-in-out;
+}
+@mixin circle2($color) {
+  position: relative;
+  width: 16px;
+  height: 16px;
+  border: solid 2px $color;
+  border-radius: 50%;
+  margin: 0 auto;
+  margin-bottom: 8px;
+  transition: all 0.3s ease-in-out;
+}
+
+.filterSection {
+  position: fixed;
+  background: #f1f2f6;
+  padding: 16px !important;
+  color: #132968;
+  box-shadow: 5px 0px 5px -2px rgba(19, 41, 104, 0.1);
+  transition: all 0.5s ease;
+  top: 0;
+  opacity: 0;
+  visibility: hidden;
+  left: 46%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 5000;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  ul {
+    list-style-type: none;
+    li {
+      position: relative;
+      padding: 16px !important;
+      cursor: pointer;
+      text-align: center;
+      border-top: dashed 1px #132968;
+      &:hover {
+        .circleong,
+        .circlesch,
+        .circlecanc,
+        .circleend {
+          transform: scale(1.2);
+        }
+      }
+      &:focus {
+        outline: none;
+        .circleong {
+          @include circle(#0cae5a);
+        }
+        .circlesch {
+          @include circle(#8d2fb4);
+        }
+        .circlecanc {
+          @include circle(#d63c3c);
+        }
+        .circleend {
+          @include circle(#333333);
+        }
+      }
+    }
+    .arrowButton {
+      border-top: none;
+      padding: 4px !important;
+      display: flex;
+      justify-content: center;
+      &:focus {
+        outline: none;
+        .buttonasc {
+          border-top: solid 2px rgba(19, 41, 104, 1);
+          border-left: solid 2px rgba(19, 41, 104, 1);
+        }
+        .buttondsc {
+          border-top: solid 2px rgba(19, 41, 104, 1);
+          border-left: solid 2px rgba(19, 41, 104, 1);
+        }
+      }
+      .buttonasc {
+        width: 10px;
+        height: 10px;
+        border-top: solid 2px rgba(19, 41, 104, 0.4);
+        border-left: solid 2px rgba(19, 41, 104, 0.4);
+        transform: rotate(45deg);
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          border-top: solid 2px rgba(19, 41, 104, 1);
+          border-left: solid 2px rgba(19, 41, 104, 1);
+        }
+      }
+      .buttondsc {
+        width: 10px;
+        height: 10px;
+        border-top: solid 2px rgba(19, 41, 104, 0.4);
+        border-left: solid 2px rgba(19, 41, 104, 0.4);
+        transform: rotate(225deg);
+        margin-bottom: 8px;
+        transition: all 0.3s ease-in-out;
+        &:hover {
+          border-top: solid 2px rgba(19, 41, 104, 1);
+          border-left: solid 2px rgba(19, 41, 104, 1);
+        }
+        &:focus {
+          outline: none;
+          border-top: solid 2px rgba(19, 41, 104, 1);
+          border-left: solid 2px rgba(19, 41, 104, 1);
+        }
+      }
+    }
+
+    .circleong {
+      @include circle2(#0cae5a);
+    }
+    .circlesch {
+      @include circle2(#8d2fb4);
+    }
+    .circlecanc {
+      @include circle2(#d63c3c);
+    }
+    .circleend {
+      @include circle2(#333333);
+    }
+  }
+}
+
+.activeFilterSection {
+  left: 45%;
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (max-width: 1016px) {
+  .filterSection {
+    position: fixed;
+    background: #ffffff;
+    padding: 16px;
+    border-radius: 8px;
+    color: #132968;
+    box-shadow: 0 2px 5px 0 rgba(19, 41, 104, 0.2);
+    transition: all 0.4s ease;
+    top: 40px;
+    opacity: 0;
+    visibility: hidden;
+    left: auto;
+    right: 32px;
+    height: auto;
+  }
+  .activeFilterSection {
+    top: 94px;
+    opacity: 1;
+    visibility: visible;
+  }
+}

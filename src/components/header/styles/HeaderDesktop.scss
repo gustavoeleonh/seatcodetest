@@ -1,0 +1,27 @@
+.cardsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+  .titleLogo {
+    font-size: 32px;
+    font-weight: bold;
+    width: 250px;
+    color: #132968;
+    line-height: 0.8;
+    span {
+      font-size: 16px;
+      opacity: 0.7;
+    }
+  }
+  .cardsLogo {
+    width: 50px;
+  }
+  .line {
+    position: relative;
+    height: 1px;
+    width: 100%;
+    background: #132968;
+    border-radius: 8px;
+  }
+}

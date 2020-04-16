@@ -1,0 +1,208 @@
+.gm-style .gm-style-iw-c {
+  position: absolute;
+  box-sizing: border-box;
+  overflow: hidden;
+  top: -16px;
+  left: 0;
+  border-radius: 8px;
+  padding: 0px !important;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px 0 rgba(19, 41, 104, 0.3);
+  max-width: auto;
+  max-height: auto;
+  color: #132968;
+}
+
+.gm-style-iw-d {
+  width: 300px !important;
+  max-width: auto !important;
+}
+
+.gm-style .gm-style-iw-t::after {
+  display: none !important;
+}
+
+.gm-style-iw-d {
+  overflow: hidden !important;
+}
+
+.gm-ui-hover-effect {
+  display: none !important;
+}
+
+.gm-style-iw-c {
+  position: relative;
+}
+
+.infoBox {
+  padding: 16px !important;
+  &::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 60%;
+    border-radius: 50%;
+    background: #fa6b6b;
+    right: -50px;
+    opacity: 0.2;
+    bottom: -55px;
+  }
+}
+
+.infoWindowParent {
+  padding: 24px 16px !important;
+  color: #ffffff;
+  font-weight: lighter;
+  .closeInfoWindow {
+    width: 16px;
+    height: 16px;
+    border-top: solid 2px #ffffff;
+    border-left: solid 2px #ffffff;
+    transform: rotate(-45deg);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    &:hover {
+      margin-left: -5px;
+    }
+  }
+  .infoWindowAddress {
+    font-size: 24px;
+    margin-top: 24px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .infoWindowHour {
+    font-size: 16px;
+    margin-top: 8px;
+  }
+  .infoWindowUser {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+  .infoWindowPricePay {
+    margin-top: 64px;
+    display: flex;
+    .infoWindowPrice {
+      font-size: 24px;
+    }
+    .infoWindowIcon {
+      height: 24px;
+      margin-left: 16px;
+    }
+  }
+
+  .infoWindowBus {
+    position: absolute;
+    bottom: 4px;
+    width: 200px;
+    right: -80px;
+  }
+  .infoWindowNoInfo {
+    margin-top: 24px;
+    font-size: 14px;
+    width: 60%;
+  }
+}
+
+.infoWindowParent.status-ongoing {
+  background: #0cae5a;
+}
+.infoWindowParent.status-scheduled {
+  background: #8d2fb4;
+}
+.infoWindowParent.status-cancelled {
+  background: #d63c3c;
+}
+
+.infoWindow-close {
+  width: auto;
+  text-align: center;
+  padding: 9px 3px !important;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: solid 1px #f1f2f6;
+
+  .buttonCloseLin1,
+  .buttonCloseLin2 {
+    width: 12px;
+    height: 1px;
+    background: #f1f2f6;
+  }
+  .buttonCloseLin1 {
+    transform: rotate(45deg);
+  }
+  .buttonCloseLin2 {
+    transform: rotate(-45deg);
+    margin-top: -1px;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.divStyle {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+.divStyle2 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.divStyle3 {
+  display: flex;
+  align-items: center;
+  padding: 16px !important;
+  background: #132968;
+  .line {
+    position: relative;
+    height: 1px;
+    width: 80%;
+    background: #f1f2f6;
+    border-radius: 8px;
+  }
+}
+
+.UserIcon1 {
+  width: 30px;
+}
+.UserIcon2 {
+  width: 15px;
+}
+.UserIcon3 {
+  width: 24px;
+}
+
+.InfoStyle1 {
+  margin-left: 8px;
+  font-weight: bold;
+}
+.InfoStyle2 {
+  margin-left: 8px;
+}
+.InfoStyle3 {
+  margin-left: -8px;
+  margin-top: 20px;
+  font-weight: bold;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #fa6b6b;
+  color: #ffffff;
+  font-size: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+}
+
+.fontSize12 {
+  font-size: 12px;
+}

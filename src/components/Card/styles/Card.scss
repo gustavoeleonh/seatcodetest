@@ -1,0 +1,623 @@
+@mixin cardActive() {
+  .paddingCard {
+    width: calc(100% - 120px);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  .divInfo2 {
+    width: 20%;
+  }
+  .hoursCenter {
+    font-size: 8px;
+    margin: 8px 0 0;
+  }
+
+  .cardDate {
+    display: none;
+  }
+
+  .status-ongoing {
+    @include status(#0cae5a, "true");
+  }
+
+  .status-cancelled {
+    @include status(#d63c3c, "true");
+  }
+  .status-scheduled {
+    @include status(#8d2fb4, "true");
+  }
+  .status-finalized {
+    @include status(#cccccc, "true");
+  }
+}
+
+@mixin status($color, $hover) {
+  color: $color;
+  text-transform: uppercase;
+  @if $hover == "false" {
+    &::before {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: $color;
+      margin-top: 4px;
+      margin-left: -8px;
+    }
+  }
+  @if $hover == "true" {
+    &::after {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: $color;
+      margin-top: 4px;
+      right: -8px;
+    }
+    &::before {
+      display: none;
+    }
+  }
+}
+
+@mixin cardType($color1, $color2, $color3) {
+  position: relative;
+  background: #ffffff;
+  margin: 16px 0;
+  border-radius: 8px;
+  width: 100%;
+  height: auto;
+  display: flex;
+  color: $color1;
+  box-shadow: 0 2px 5px 0 rgba(19, 41, 104, 0.2);
+  cursor: pointer;
+  &:hover {
+    .paddingCard {
+      width: calc(100% - 120px);
+    }
+    .divInfo2 {
+      width: 20%;
+    }
+    .hoursCenter {
+      font-size: 8px;
+      margin: 8px 0 0;
+    }
+
+    .cardDate {
+      display: none;
+    }
+
+    .status-ongoing {
+      @include status(#0cae5a, "true");
+    }
+
+    .status-cancelled {
+      @include status(#d63c3c, "true");
+    }
+    .status-scheduled {
+      @include status(#8d2fb4, "true");
+    }
+    .status-finalized {
+      @include status(#cccccc, "true");
+    }
+  }
+
+  &:first-child {
+    margin: 8px 0 16px 0;
+  }
+  &:last-child {
+    margin: 16px 0 40px 0;
+  }
+
+  .paddingCard {
+    padding: 16px 24px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transition: width 0.3s ease;
+    z-index: 5;
+    width: 100%;
+    background: #ffffff;
+  }
+
+  .cardDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .cardDate {
+    color: #878787;
+  }
+
+  .divInfoParent {
+    display: flex;
+    justify-content: space-between;
+    h6 {
+      font-weight: lighter;
+    }
+  }
+  .divInfo1,
+  .divInfo3 {
+    width: 120px;
+  }
+  .divInfo2 {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .arrowCenter {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, $color3, $color2);
+    margin-top: 8px;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 4px;
+      top: -5px;
+      right: -5px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: solid 4px $color2;
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      width: 4px;
+      height: 4px;
+      top: -5px;
+      left: -5px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: solid 4px $color3;
+    }
+  }
+
+  .hoursCenter {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    font-weight: bold;
+    margin-top: 8px;
+    margin: 8px 8px 0;
+    .hoursCenterStart {
+      color: $color3;
+    }
+    .hoursCenterStop {
+      color: $color2;
+    }
+  }
+  .cardDivDriver {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+  }
+  .busDriverIcon {
+    width: 16px;
+    margin-right: 8px;
+  }
+  .timeZone {
+    margin-top: 8px;
+    &::after {
+      position: absolute;
+      content: "";
+      width: 60%;
+      height: 1px;
+      background: $color1;
+      margin-top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+  .address {
+    margin-top: 8px;
+  }
+
+  .cardInfoHoverClicked {
+    position: absolute;
+    top: 0;
+    width: 120px;
+    height: 100%;
+    background: $color2;
+    color: #ffffff;
+    padding: 16px 24px;
+    font-size: 8px;
+    border-radius: 8px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 0;
+    .cihcRoute {
+      text-align: right;
+      font-weight: bold;
+      font-size: 6px;
+    }
+    .cihcPhoto {
+      width: 24px;
+      height: 24px;
+      background: $color3;
+      border-radius: 50%;
+      margin: 0 auto;
+    }
+    .cihcName {
+      text-align: center;
+      font-size: 8px;
+      font-weight: bold;
+      padding-top: 4px;
+      display: -webkit-box;
+      -webkit-line-clamp: 1;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+  }
+  .status-ongoing {
+    position: relative;
+    @include status(#0cae5a, "false");
+  }
+  .status-ongoing {
+    position: relative;
+    @include status(#0cae5a, "false");
+  }
+
+  .status-cancelled {
+    position: relative;
+    @include status(#d63c3c, "false");
+  }
+  .status-scheduled {
+    position: relative;
+    @include status(#8d2fb4, "false");
+  }
+  .status-finalized {
+    position: relative;
+    @include status(#cccccc, "false");
+  }
+}
+
+.card.route-ongoing {
+  position: relative;
+  @include cardType(#132968, #0cae5a, #9c8e67);
+}
+.card.route-ongoing.card-active {
+  @include cardActive;
+}
+.card.route-scheduled {
+  position: relative;
+  @include cardType(#132968, #8d2fb4, #8a7a86);
+}
+.card.route-scheduled.card-active {
+  @include cardActive;
+}
+.card.route-finalized {
+  position: relative;
+  @include cardType(#cccccc, #cccccc, #cccccc);
+  opacity: 0.5;
+}
+.card.route-finalized.card-active {
+  @include cardActive;
+}
+.card.route-cancelled {
+  position: relative;
+  @include cardType(#132968, #d63c3c, #d3993d);
+}
+.card.route-cancelled.card-active {
+  @include cardActive;
+}
+
+@media only screen and (max-width: 1016px) {
+  @mixin cardActive() {
+    box-shadow: 0 2px 8px 0 rgba(19, 41, 104, 0.5);
+    .paddingCard {
+      width: 100%;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+    .divInfo2 {
+      width: 30%;
+    }
+    .hoursCenter {
+      font-size: 8px;
+      margin: 8px 0 0;
+    }
+
+    .cardDate {
+      display: block;
+    }
+
+    .status-ongoing {
+      @include status(#0cae5a, "true");
+    }
+
+    .status-cancelled {
+      @include status(#d63c3c, "true");
+    }
+    .status-scheduled {
+      @include status(#8d2fb4, "true");
+    }
+    .status-finalized {
+      @include status(#cccccc, "true");
+    }
+  }
+
+  @mixin status($color, $hover) {
+    color: $color;
+    text-transform: uppercase;
+    @if $hover == "false" {
+      &::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $color;
+        margin-top: 4px;
+        margin-left: -8px;
+      }
+    }
+    @if $hover == "true" {
+      &::after {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 4px;
+        border-radius: 50%;
+        background: $color;
+        margin-top: 4px;
+        right: -8px;
+      }
+      &::before {
+        display: none;
+      }
+    }
+  }
+
+  @mixin cardType($color1, $color2, $color3) {
+    position: relative;
+    background: #ffffff;
+    margin: 24px 0;
+    border-radius: 8px;
+    width: 100%;
+    height: auto;
+    display: block;
+    color: $color1;
+    box-shadow: 0 2px 5px 0 rgba(19, 41, 104, 0.2);
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      .paddingCard {
+        width: 100%;
+      }
+      .divInfo2 {
+        width: 30%;
+      }
+      .hoursCenter {
+        font-size: 8px;
+        margin: 8px 0 0;
+      }
+
+      .cardDate {
+        display: block;
+      }
+
+      .status-ongoing {
+        @include status(#0cae5a, "true");
+      }
+
+      .status-cancelled {
+        @include status(#d63c3c, "true");
+      }
+      .status-scheduled {
+        @include status(#8d2fb4, "true");
+      }
+      .status-finalized {
+        @include status(#cccccc, "true");
+      }
+    }
+
+    &:first-child {
+      margin: 8px 0 16px 0;
+    }
+    &:last-child {
+      margin: 16px 0 40px 0;
+    }
+
+    .paddingCard {
+      padding: 8px 16px;
+      border-top-left-radius: 8px;
+      border-bottom-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      transition: width 0.3s ease;
+      z-index: 5;
+      width: 100%;
+      background: #ffffff;
+    }
+
+    .cardDiv {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .cardDate {
+      color: #878787;
+    }
+
+    .divInfoParent {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4px;
+    }
+    .divInfo1,
+    .divInfo3 {
+      width: 120px;
+    }
+    .divInfo2 {
+      width: 30%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    .arrowCenter {
+      position: relative;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(to right, $color3, $color2);
+      margin-top: 8px;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 4px;
+        top: -5px;
+        right: -5px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: solid 4px $color2;
+      }
+      &::before {
+        position: absolute;
+        content: "";
+        width: 4px;
+        height: 4px;
+        top: -5px;
+        left: -5px;
+        border-radius: 50%;
+        background: #ffffff;
+        border: solid 4px $color3;
+      }
+    }
+
+    .hoursCenter {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: bold;
+      margin: 8px 0 0 0;
+      .hoursCenterStart {
+        color: $color3;
+      }
+      .hoursCenterStop {
+        color: $color2;
+      }
+    }
+    .cardDivDriver {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 24px;
+    }
+    .busDriverIcon {
+      width: 16px;
+      margin-right: 8px;
+    }
+    .timeZone {
+      margin-top: 8px;
+      &::after {
+        position: absolute;
+        content: "";
+        width: 60%;
+        height: 1px;
+        background: $color1;
+        margin-top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+    .address {
+      margin-top: 8px;
+    }
+
+    .cardInfoHoverClicked {
+      position: relative;
+      top: 0;
+      width: 100%;
+      height: auto;
+      background: $color2;
+      color: #ffffff;
+      padding: 8px 16px;
+      font-size: 8px;
+      border-radius: 0px;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+      right: 0;
+      display: flex;
+      flex-direction: column;
+      z-index: 0;
+      .cihcRoute {
+        text-align: center;
+        font-weight: bold;
+        font-size: 6px;
+      }
+      .cihcPhoto {
+        display: none;
+      }
+      .cihcName {
+        text-align: center;
+        font-size: 8px;
+        font-weight: bold;
+        padding-top: 4px;
+        display: -webkit-box;
+        -webkit-line-clamp: 1;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+    }
+    .status-ongoing {
+      position: relative;
+      @include status(#0cae5a, "false");
+    }
+    .status-ongoing {
+      position: relative;
+      @include status(#0cae5a, "false");
+    }
+
+    .status-cancelled {
+      position: relative;
+      @include status(#d63c3c, "false");
+    }
+    .status-scheduled {
+      position: relative;
+      @include status(#8d2fb4, "false");
+    }
+    .status-finalized {
+      position: relative;
+      @include status(#cccccc, "false");
+    }
+  }
+  .card.route-ongoing {
+    position: relative;
+    @include cardType(#132968, #0cae5a, #9c8e67);
+  }
+  .card.route-ongoing.card-active {
+    @include cardActive;
+  }
+  .card.route-scheduled {
+    position: relative;
+    @include cardType(#132968, #8d2fb4, #8a7a86);
+  }
+  .card.route-scheduled.card-active {
+    @include cardActive;
+  }
+  .card.route-finalized {
+    position: relative;
+    @include cardType(#cccccc, #cccccc, #cccccc);
+    opacity: 0.5;
+  }
+  .card.route-finalized.card-active {
+    @include cardActive;
+  }
+  .card.route-cancelled {
+    position: relative;
+    @include cardType(#132968, #d63c3c, #d3993d);
+  }
+  .card.route-cancelled.card-active {
+    @include cardActive;
+  }
+}
